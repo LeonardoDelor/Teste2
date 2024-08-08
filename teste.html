@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="estilo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador e Slideshow</title>
+
+    <script>
+        function verificarSenha() {
+            const senhaCorreta = "Honey"; // Defina a senha aqui
+            let senhaInserida;
+
+            do {
+                senhaInserida = prompt("Por favor, insira a senha:");
+
+                if (senhaInserida !== senhaCorreta) {
+                    alert("Senha incorreta! Tente novamente.");
+                                    }
+
+            } while (senhaInserida !== senhaCorreta);
+
+            document.body.style.display = "block"; // Mostra o conteúdo do site
+        }
+        
+    </script>
+    
+</head>
+<body onload="verificarSenha()">
+
+    <h1>Há quantos dias estou com o amor da minha vida</h1>
+
+    <div class="slideshow-container">
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 1.jpg" alt="Foto 1">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 2.jpg" alt="Foto 2">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 3.jpg" alt="Foto 3">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 4.jpg" alt="Foto 4">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 5.jpg" alt="Foto 5">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 6.jpg" alt="Foto 6">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 7.jpg" alt="Foto 7">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 8.jpg" alt="Foto 8">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 9.jpg" alt="Foto 9">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 10.jpg" alt="Foto 10">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 11.jpg" alt="Foto 11">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 12.jpg" alt="Foto 12">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 13.jpg" alt="Foto 13">
+        </div>
+        <div class="slides">
+            <img src="c:\Users\Leonardo Matos\Downloads\teste\Foto 14.jpg" alt="Foto 14">
+        </div>
+        
+        <h2>Rio de Janeiro</h2>
+        <div id="contador1">00d 00h 00m 00s</div>
+
+        <h3>Shed</h3>
+        <div id="contador2">00d 00h 00m 00s</div>
+
+        
+        <div class="texto-container">
+            <h4>Por que te amo?</h4>
+            <textarea id="texto" rows="30" cols="50" readonly>
+    Desde sempre fomos proximos, entre brigas e momentos felizes, aprendi a amar seu jeitinho, suas piadas, danças, risadas, caretas e sorrisos.
+    
+    Mas inúmeras situações aconteceram, 2024 veio e nos aproximamos, não nos desgrudamos mais e tudo mudou, e como mudou. Você passou a ser a mensagem de "bom dia xuxu" que esperava de manhã cedo, as fotos triste, brava, sorrindo, os papos mais aleatórios até de madrugada, me mostrou um novo amor.
+    
+    Cada momento foi especial, com seu detalhe de brilhantismo, um me marcou tanto que lembro dele como se estivesse nessa lembrança. Uma tarde de Maio, eu e você no seu quarto e o sol batendo na sua janela, produzindo um reflexo alaranjado em nós, não existia nada mais belo, apenas você, ficar te olhando, fazendo carinho, era algo de filme, algo que não queria mais sair desse momento, porque simplesmente você deixa tudo melhor.
+    
+    Não consigo por em palavras tudo que sinto, simplesmente é tudo que sempre pedi a Deus, me faz ir a além do que consigo imaginar, me ajuda com traumas, viaja nas loucuras e na estrada comigo, me ajuda a ser alguém muito melhor do que imaginava. Sempre estive aqui te esperando honey e sempre estarei ao seu lado.
+    
+    Você é o pinguim da minha vida (hahahahahah), sem sombra de dúvidas, te amo muito chatinha.
+            </textarea>
+        </div>
+       
+        <img src="c:\Users\Leonardo Matos\Downloads\teste\bloggif_66b27c5d9eab4.gif">
+
+    </div>
+
+    <script>
+        // Contador regressivo
+        function iniciarContador(elementoId, dataPassada) {
+            const contagemRegressiva = setInterval(() => {
+                const agora = new Date().getTime();
+                const distancia = agora - dataPassada;
+
+                const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+                document.getElementById(elementoId).innerHTML = dias + "d " + horas + "h "
+                + minutos + "m " + segundos + "s ";
+
+                if (distancia < 0) {
+                    clearInterval(contagemRegressiva);
+                    document.getElementById(elementoId).innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        }
+
+        // Iniciar dois contadores com datas diferentes
+        const dataPassada1 = new Date("Jul 12, 2024 09:18:00").getTime();
+        iniciarContador("contador1", dataPassada1);
+
+        const dataPassada2 = new Date("Mar 9, 2024 00:00:00").getTime();
+        iniciarContador("contador2", dataPassada2);
+
+        // Slideshow
+        let slideIndex = 0;
+        mostrarSlides();
+
+        function mostrarSlides() {
+            const slides = document.getElementsByClassName("slides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(mostrarSlides, 3000); // Muda de imagem a cada 3 segundos
+        }
+
+        function mudarSlide(n) {
+            const slides = document.getElementsByClassName("slides");
+            slideIndex += n;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            if (slideIndex < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";
+        }
+    </script>
+    
+</body>
+</html>
+
